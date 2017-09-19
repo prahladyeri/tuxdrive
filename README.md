@@ -18,7 +18,7 @@
 
 `tuxdrive` is a console based google drive client for Linux.
 
-![Logo](https://raw.githubusercontent.com/prahladyeri/tuxdrive/master/logo.jpg)
+![Logo](https://raw.githubusercontent.com/prahladyeri/tuxdrive/master/logo_small.jpg)
 
 
 ## Project Details
