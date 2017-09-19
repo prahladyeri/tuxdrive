@@ -75,7 +75,7 @@ I'm presently looking for people who can contribute in the following ways:
 
 1. Testing: Extensive user testing with feedback.
 2. Code review: There is no such thing as bug-free code and more the number of eyeballs, the better it is.
-3. Logo Design: The present logo is a bit hastily patched up, it would be great if you can design me a new logo for this project!
+3. Logo Design: The present logo is a bit hastily patched up, it would be great if you can design for me a new logo for this project!
 
 ## Donation
 
