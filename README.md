@@ -44,7 +44,7 @@ An alternative/manual way of installing is to just download the `tuxdrive` pytho
 
 `tuxdrive` has a command line interface to the google drive interface similar to traditional unix tools like `ftp` and `sftp` (though not as extensive and comprehensive yet!).
 
-Once you start `tuxdrive` program, it gives you a `tux_drive` prompt from which you can run the above commands. When you run `tuxdrive` the first time, it will open up the browser window and ask for permissions to access your google drive on your behalf. After that, you can list your drive files using `ls remote` command for example:
+Once you start `tuxdrive` program, it will give you a `tux_drive>` prompt from which you can run the above commands. When you run `tuxdrive` the first time, it will open up the browser window and ask for permissions to access your google drive on your behalf. After that, you can list your drive files using `ls remote` command for example:
 
 ![Screenshot](https://github.com/prahladyeri/tuxdrive/raw/master/screenshot.png)
 
