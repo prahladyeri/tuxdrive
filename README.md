@@ -14,11 +14,12 @@
 6. [Donation](#donation)
 7. [License](#license)
 
-![Logo](https://raw.githubusercontent.com/prahladyeri/tuxdrive/master/logo.jpg)
-
 ## Introduction
 
 `tuxdrive` is a console based google drive client for Linux.
+
+![Logo](https://raw.githubusercontent.com/prahladyeri/tuxdrive/master/logo.jpg)
+
 
 ## Project Details
 
