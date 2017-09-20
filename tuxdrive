@@ -223,6 +223,9 @@ def upload_file(input_file, is_folder=False):
 			#todo: what does fields='id' do?
 			service.files().create(body=body, fields='id').execute() #newRevision=True,
 		else:
+			if os.stat(input_file).st_size == 0:
+				print("Zero size file found: %s, skipping." % input_file)
+				return
 			media_body = MediaFileUpload(input_file, resumable=True)
 			service.files().create(body=body, media_body=media_body).execute() #newRevision=True,
 	print("Upload successful")
