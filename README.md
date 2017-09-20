@@ -82,7 +82,7 @@ I'm presently looking for people who can contribute in the following ways:
 
 | Paypal | Bitcoin |
 | ------ | ------- |
-| [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU) |  <center> ![1Av4rPGBz5rJVPwewSTDCpYac1rjvkaSzT](https://www.prahladyeri.com/assets/btc_address.png)<br />1Av4rPGBz5rJVPwewSTDCpYac1rjvkaSzT</center> |
+| [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU) |  1Av4rPGBz5rJVPwewSTDCpYac1rjvkaSzT |
 
 
 ## License
