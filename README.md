@@ -44,21 +44,22 @@ An alternative/manual way of installing is to just download the `tuxdrive` pytho
 
 `tuxdrive` has a command line interface to the google drive interface similar to traditional unix tools like `ftp` and `sftp` (though not as extensive and comprehensive yet!).
 
-Once you start `tuxdrive` program, it will give you a `tux_drive>` prompt from which you can run the above commands. When you run `tuxdrive` the first time, it will open up the browser window and ask for permissions to access your google drive on your behalf. After that, you can start running commands. You can list your drive files using `ls remote` command for example:
+Once you start `tuxdrive` program, it will give you a `tux_drive>` prompt from which you can run the above commands. When you run `tuxdrive` the first time, it will open up the browser window and ask for permissions to access your google drive on your behalf. After that, you can start running commands. You can list your drive files using `ls` or `dir` command for example:
 
 ![Screenshot](https://github.com/prahladyeri/tuxdrive/raw/master/screenshot.png)
 
 
 Similarly, you can run `push some_local_file.txt` to upload it to your drive, or `rcd my_drive_folder` to change the remote drive. Here is the entire command list:
 
-	help: Shows this help facility.
-	ls remote: Lists all files and folders on drive.
-	ls local: Lists all files and folders in current directory.
-	pull <item>: Pulls the named file/folder from drive to current working directory.
-	push <item>: Pulls the named file/folder from current working directory to drive.
-	rwd: Print working directory (remote/drive)
-	rcd: Change working directory (remote/drive)
-	lwd: Print working directory (local)
+	help (or ?): Shows this help facility.
+	dir (or ls): Lists all files and folders on drive.
+	!dir (or !ls): Lists all files and folders in current directory.
+	put <item>: Pulls the named file/folder from drive to current working directory.
+	get <item>: Pulls the named file/folder from current working directory to drive.
+	rm <item>: Delete the named file/folder on remote path.
+	pwd: Print working directory (remote/drive)
+	cd: Change working directory (remote/drive)
+	lpwd: Print working directory (local)
 	lcd: Change working directory (local)
 	rdcache: Show remote directory mapping of id and folder paths.
 	rfcache: Show remote files mapping of id and folder paths.

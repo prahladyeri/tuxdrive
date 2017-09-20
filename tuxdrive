@@ -275,14 +275,15 @@ def main():
 	global remote_dir
 	HELP_STRING = """Commands:
 
-help: Shows this help facility.
-ls remote: Lists all files and folders on drive.
-ls local: Lists all files and folders in current directory.
+help (or ?): Shows this help facility.
+dir (or ls): Lists all files and folders on drive.
+!dir (or !ls): Lists all files and folders in current directory.
 pull <item>: Pulls the named file/folder from drive to current working directory.
-push <item>: Pulls the named file/folder from current working directory to drive.
-rwd: Print working directory (remote/drive)
-rcd: Change working directory (remote/drive)
-lwd: Print working directory (local)
+push <item>: Pushes the named file/folder from current working directory to drive.
+rm <item>: Delete the named file/folder on remote path.
+pwd: Print working directory (remote/drive)
+cd: Change working directory (remote/drive)
+lpwd: Print working directory (local)
 lcd: Change working directory (local)
 rdcache: Show remote directory mapping of id and folder paths.
 rfcache: Show remote files mapping of id and folder paths.
@@ -303,17 +304,18 @@ exit: Exits this program.
 		elif cli == "exit":
 			print("Bye.")
 			break
-		elif cli == "ls remote":
+		elif cli == "ls" or cli == "dir" or cli == "ls remote":
 			list_contents()
-		elif cli == "ls local":
+		elif cli == "!ls" or cli == "!dir" or cli == "ls local":
 			cnt = 0
 			for item in os.listdir():
 				print(("FILE " if os.path.isfile(item) else "DIRECTORY ") + item)
 				cnt += 1
 			print("\n%d items found.\n" % cnt)
 			print("\nLocal Working Directory is %s" % os.getcwd())
-		elif cli.startswith("rcd "):
-			ss = cli[4:]
+		elif cli.startswith("rcd ") or cli.startswith("cd "):
+			#ss = cli[4:]
+			ss = cli[cli.index(' ')+1:]
 			#if len(remote_contents) == 0: list_contents(True)
 			found = True
 			
@@ -356,9 +358,9 @@ exit: Exits this program.
 				print("Directory changed to %s\n" % ss)
 			else:
 				print("Directory does not exist.\n")
-		elif cli == "lwd":
+		elif cli == "lpwd" or cli == "lwd":
 			print("Local Working Directory is %s" % os.getcwd()) #os.chdir(..), 
-		elif cli == "rwd":
+		elif cli == "pwd" or cli == "rwd":
 			print("Remote Working Directory is %s(%s)" % remote_dir_id)
 		elif cli == "rdcache":
 			for key in remote_dir_cache:
