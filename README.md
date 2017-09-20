@@ -30,9 +30,9 @@
 
 ## Installation
 
-As a pre-requisite, you should have `python3` and `google-api-python` package installed through `pip3` or something:
+As a pre-requisite, you should have `python3` and `google-api-python-client` package installed through `pip3` or something:
 
-	pip3 install google-api-python
+	pip3 install google-api-python-client
 
 Then, just download the [latest](https://github.com/prahladyeri/tuxdrive/releases/latest) `tuxdrive.deb` package and run the following command.
 
