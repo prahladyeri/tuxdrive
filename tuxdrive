@@ -12,7 +12,7 @@ from oauth2client.file import Storage
 __author__ = "Prahlad Yeri"
 __license__ = "MIT"
 __credits__ = ["Prahlad Yeri"]
-__version__ = "1.0.8"
+__version__ = "1.0.9"
 __status__ = "Production"
 
 APPLICATION_NAME = "Tux Drive"
@@ -75,6 +75,7 @@ def list_contents(silent = False):
 	remote_contents = []
 	pstr = remote_dir_id
 	#print(pstr)
+	if not silent: print("")
 	items = fetch("'" + pstr + "' in parents and mimeType = 'application/vnd.google-apps.folder'", sort='modifiedTime desc')
 	for item in items:
 		remote_contents.append({'name':item['name'], 'type':'DIRECTORY', 'id':item['id']})
@@ -307,6 +308,7 @@ exit: Exits this program.
 				print(("FILE " if os.path.isfile(item) else "DIRECTORY ") + item)
 				cnt += 1
 			print("\n%d items found.\n" % cnt)
+			print("\nLocal Working Directory is %s" % os.getcwd())
 		elif cli.startswith("rcd "):
 			ss = cli[4:]
 			#if len(remote_contents) == 0: list_contents(True)
