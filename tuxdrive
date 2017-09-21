@@ -11,9 +11,7 @@ from oauth2client.file import Storage
 
 __author__ = "Prahlad Yeri"
 __license__ = "MIT"
-__credits__ = ["Prahlad Yeri"]
-__version__ = "1.0.10"
-__status__ = "Production"
+__version__ = "1.0.11"
 
 APPLICATION_NAME = "Tux Drive"
 APP_PATH = os.getcwd()
@@ -278,8 +276,8 @@ def main():
 help (or ?): Shows this help facility.
 dir (or ls): Lists all files and folders on drive.
 !dir (or !ls): Lists all files and folders in current directory.
-pull <item>: Pulls the named file/folder from drive to current working directory.
-push <item>: Pushes the named file/folder from current working directory to drive.
+get (or pull) <item>: Pulls the named file/folder from drive to current working directory.
+put (or push) <item>: Pushes the named file/folder from current working directory to drive.
 rm <item>: Delete the named file/folder on remote path.
 pwd: Print working directory (remote/drive)
 cd: Change working directory (remote/drive)
@@ -370,8 +368,9 @@ exit: Exits this program.
 			for key in remote_file_cache:
 				print(key, remote_file_cache[key])
 			print("")
-		elif cli.startswith("pull"):
-			ss = cli[5:]
+		elif cli.startswith("pull ") or cli.startswith("get "):
+			#ss = cli[5:]
+			ss = cli[cli.index(' ')+1:]
 			fname = remote_dir + ("" if remote_dir=="/" else "/") + ss
 			if fname in remote_file_cache.keys():
 				print("File found: %s" % fname)
@@ -390,8 +389,9 @@ exit: Exits this program.
 				list_contents(True)
 			else:
 				print("Item not found on remote drive.")
-		elif cli.startswith("push"):
-			ss = cli[5:]
+		elif cli.startswith("push ") or cli.startswith("put "):
+			#ss = cli[5:]
+			ss = cli[cli.index(' ')+1:]
 			if os.path.isfile(ss):
 				upload_file(ss)
 			elif os.path.isdir(ss): #upload directory
