@@ -12,7 +12,7 @@ from oauth2client.file import Storage
 __author__ = "Prahlad Yeri"
 __license__ = "MIT"
 __credits__ = ["Prahlad Yeri"]
-__version__ = "1.0.9"
+__version__ = "1.0.10"
 __status__ = "Production"
 
 APPLICATION_NAME = "Tux Drive"
@@ -361,7 +361,7 @@ exit: Exits this program.
 		elif cli == "lpwd" or cli == "lwd":
 			print("Local Working Directory is %s" % os.getcwd()) #os.chdir(..), 
 		elif cli == "pwd" or cli == "rwd":
-			print("Remote Working Directory is %s(%s)" % remote_dir_id)
+			print("Remote Working Directory is %s(%s)" % (remote_dir, remote_dir_id))
 		elif cli == "rdcache":
 			for key in remote_dir_cache:
 				print(key, remote_dir_cache[key])
