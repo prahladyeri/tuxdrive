@@ -54,8 +54,8 @@ Similarly, you can run `push some_local_file.txt` to upload it to your drive, or
 	help (or ?): Shows this help facility.
 	dir (or ls): Lists all files and folders on drive.
 	!dir (or !ls): Lists all files and folders in current directory.
-	put <item>: Pulls the named file/folder from drive to current working directory.
-	get <item>: Pulls the named file/folder from current working directory to drive.
+	get (or pull) <item>: Pulls the named file/folder from drive to current working directory.
+	put (or push) <item>: Pushes the named file/folder from current working directory to drive.
 	rm <item>: Delete the named file/folder on remote path.
 	pwd: Print working directory (remote/drive)
 	cd: Change working directory (remote/drive)
