@@ -30,7 +30,7 @@
 
 ## Installation
 
-As a pre-requisite, you should have `python3` and `google-api-python-client` package installed through `pip3` or something:
+As a pre-requisite, you should have `python3` and `google-api-python-client` package installed using `pip3`:
 
 	sudo pip3 install google-api-python-client
 
