@@ -34,7 +34,7 @@ As a pre-requisite, you should have `python3` and `google-api-python-client` pac
 
 	sudo pip3 install google-api-python-client
 
-Then, just download the [latest](https://github.com/prahladyeri/tuxdrive/releases/latest) `tuxdrive.deb` package and run the following command.
+Then, just download the [latest `.DEB`](https://github.com/prahladyeri/tuxdrive/releases/latest) package and run the following command.
 
     sudo dpkg -i tuxdrive.deb
     
@@ -57,10 +57,10 @@ Similarly, you can run `push some_local_file.txt` to upload it to your drive, or
 	get (or pull) <item>: Pulls the named file/folder from drive to current working directory.
 	put (or push) <item>: Pushes the named file/folder from current working directory to drive.
 	rm <item>: Delete the named file/folder on remote path.
-	pwd: Print working directory (remote/drive)
-	cd: Change working directory (remote/drive)
-	lpwd: Print working directory (local)
-	lcd: Change working directory (local)
+	pwd: Print working directory (remote/drive).
+	cd: Change working directory (remote/drive).
+	lpwd: Print working directory (local).
+	lcd: Change working directory (local).
 	rdcache: Show remote directory mapping of id and folder paths.
 	rfcache: Show remote files mapping of id and folder paths.
 	mkdir: Create a directory on remote path.
