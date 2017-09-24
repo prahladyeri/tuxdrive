@@ -1,9 +1,50 @@
 <!doctype html>
-<html>
-	<title>tuxdrive - Home Page</title>
+<html lang='en'>
 <head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>tuxdrive - Home Page</title>
+	
+	<link rel='stylesheet' href='css/bootstrap.min.css'>
+	
+	<script src='lib/jquery.min.js'></script>
+	<script src='lib/bootstrap.min.js'></script>
+	<script src='js/app.js'></script>
+	
+	<link rel="icon" href="logo.jpg">
 </head>
 <body>
-	<h1>tuxdrive - The command line tool to work with Google Drive files.</h1>
+<div class='container'>
+<div class='row'>
+	<div class='col-12'>
+		<div class='heading row'>
+			<h1 class='appName col-12 bg-info text-center'></h1>
+			<h4 class='col-12 text-center'>
+			<a class='text-center appURL' href="#"><img class='rounded' src='logo.jpg'><br>Project Github Repository</a>
+			</h4>
+			
+		</div>
+
+		<div class='releases col-12 text-center'>
+		</div>
+	</div>
+	
+	<div class='template card d-none'>
+		<div class="card-header">Release</div>
+		<div class="card-body">
+		<h4 class="card-title">Version 1.11 of X has been released.</h4>
+		<p class="card-text"></p>
+		<a href="#" class="btn-binary btn btn-success btn-sm">Download Binary</a>
+		<a href="#" class="btn-src btn btn-primary  btn-sm">Download Source</a>
+		</div>
+	</div>
+</div>
+
+<div class='row'>
+<div class='col-12 text-center'>
+	<p>&copy; Prahlad Yeri 2017. All Rights Reserved.</p>
+</div>
+</div>
+</div>
 </body>
 </html>
