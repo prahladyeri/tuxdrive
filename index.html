@@ -46,5 +46,13 @@
 </div>
 </div>
 </div>
+
+<script>
+$(document).ready(function(){
+	$(".appName").text(appName);
+	$(".appURL").attr('href','https://github.com/' + repoName);
+	getAllReleases();
+});
+</script>
 </body>
 </html>
