@@ -3,18 +3,22 @@ var appDescn = "Console App to interact with Google Drive";
 
 var repoName = "prahladyeri/tuxdrive";
 
-function showBackdrop() {
+function showBackdrop(done) {
 	//$('<div class="modal-backdrop fade-in"></div>').appendTo(document.body);
 	//$('.modal').modal({show:true});
 	console.log('showbd');
-	$('.modal').modal('toggle');
+	$('.modal').on('shown.bs.modal', function(){
+		console.log('shown');
+		done();
+	});
+	$('.modal').modal('show');
 }
 
 function hideBackdrop(){
 	//$(".modal-backdrop").remove();
 	console.log('hidebd');
 	$('.modal').modal({show:false});
-	$('.modal').modal('toggle');
+	$('.modal').modal('hide');
 }
 
 function getAllReleases(done) {
