@@ -1,7 +1,23 @@
 var appName = "Tux Drive";
+var appDescn = "Console App to interact with Google Drive";
+
 var repoName = "prahladyeri/tuxdrive";
 
-function getAllReleases() {
+function showBackdrop() {
+	//$('<div class="modal-backdrop fade-in"></div>').appendTo(document.body);
+	//$('.modal').modal({show:true});
+	console.log('showbd');
+	$('.modal').modal('toggle');
+}
+
+function hideBackdrop(){
+	//$(".modal-backdrop").remove();
+	console.log('hidebd');
+	$('.modal').modal({show:false});
+	$('.modal').modal('toggle');
+}
+
+function getAllReleases(done) {
 	console.log('here');
 	$.getJSON("https://api.github.com/repos/" + repoName + "/releases")
 	.done(function(releases){
@@ -17,6 +33,8 @@ function getAllReleases() {
 			$div.find('.btn-binary').attr('href', releases[i].assets[0].browser_download_url);
 			$div.find('.btn-src').attr('href', releases[i].tarball_url);
 			if (i==0) {
+				$div.find('.card-header').text("Latest Release");
+				$div.find('.card-header').addClass("font-weight-bold");
 				$div.find('.btn-binary').attr('name','btnLatest');
 			}
 			
@@ -26,6 +44,8 @@ function getAllReleases() {
 			
 			$('.releases').append($div);
 		}
+		
+		done();
 	})
 	;
 }
