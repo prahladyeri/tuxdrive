@@ -34,7 +34,7 @@ As a pre-requisite, you should have `python3` and `google-api-python-client` pac
 
 	sudo pip3 install google-api-python-client
 
-Then, just download the [latest binary(DEB) package](https://prahladyeri.github.io/tuxdrive/) and run the following command.
+After that, just download the [latest binary(DEB) package](https://prahladyeri.github.io/tuxdrive/) and run the following command.
 
     sudo dpkg -i tuxdrive.deb
     
