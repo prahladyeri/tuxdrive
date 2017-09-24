@@ -24,7 +24,7 @@
 ## Project Details
 
 - Lead Developer: [Prahlad Yeri](https://github.com/prahladyeri)
-- Governance: Meritocracy.
+- Home Page: [https://prahladyeri.github.io/tuxdrive/](https://prahladyeri.github.io/tuxdrive/)
 - Issue tracker: [https://github.com/prahladyeri/tuxdrive/issues](https://github.com/prahladyeri/tuxdrive/issues)
 - Discussion Room: [https://www.reddit.com/r/tuxdrive](https://www.reddit.com/r/tuxdrive)
 
