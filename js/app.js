@@ -27,14 +27,26 @@ function getAllReleases(done) {
 		
 		//first one will be the latest
 		for(var i=0;i<releases.length;i++) {
-			console.log(releases[i]['name'], releases[i]['tag_name'], releases[i]['body']);
+			//console.log(releases[i]['name'], releases[i]['tag_name'], releases[i]['body']);
 			//$div = $("<div class='relese'></div>");
 			$div = $(".template").clone().removeClass('template d-none');
-			$div.find('.card-title').text("Version " + releases[i]['tag_name'] + " of " + appName + " has been Released.");
+			
+			var rname = releases[i].name;
+			$div.find('.card-header').text(rname + (i==0?" (Latest)":""));
+			var rbody = "Version " + releases[i]['tag_name'] + " of " + appName + " has been Released.\n";
+			$div.find('.card-title').text(rbody);
+			
+			var updated_at = new Date(releases[i].assets[0].updated_at);
+			var dd = updated_at.getDate();
+			var mm = updated_at.getMonth() + 1;
+			var yy = updated_at.getFullYear();
+			$div.find('.release-date').text("Release Date: " + yy + "-" + mm + "-" + dd);
+			$div.find('.download-count').text("Download #" + releases[i].assets[0].download_count);
+			
 			$div.find('.btn-binary').attr('href', releases[i].assets[0].browser_download_url);
 			$div.find('.btn-src').attr('href', releases[i].tarball_url);
 			if (i==0) {
-				$div.find('.card-header').text("Latest Release");
+				
 				$div.find('.card-header').addClass("font-weight-bold");
 				$div.find('.btn-binary').attr('name','btnLatest');
 			}
