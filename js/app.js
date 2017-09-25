@@ -1,24 +1,21 @@
 var appName = "Tux Drive";
-var appDescn = "Console App to interact with Google Drive";
+var appDescn = "Console based google drive client for Linux";
 
 var repoName = "prahladyeri/tuxdrive";
 
 function showBackdrop(done) {
-	//$('<div class="modal-backdrop fade-in"></div>').appendTo(document.body);
-	//$('.modal').modal({show:true});
-	console.log('showbd');
-	$('.modal').on('shown.bs.modal', function(){
+	$('#waitDialog').on('shown.bs.modal', function(){
 		console.log('shown');
 		done();
 	});
-	$('.modal').modal('show');
+	$('#waitDialog').modal('show');
 }
 
 function hideBackdrop(){
 	//$(".modal-backdrop").remove();
-	console.log('hidebd');
-	$('.modal').modal({show:false});
-	$('.modal').modal('hide');
+	//console.log('hidebd');
+	$('#waitDialog').modal({show:false});
+	$('#waitDialog').modal('hide');
 }
 
 function getAllReleases(done) {

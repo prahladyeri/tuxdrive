@@ -6,6 +6,7 @@
 	<title></title>
 	
 	<link rel='stylesheet' href='css/bootstrap.min.css'>
+	<link rel='stylesheet' href='css/font-awesome.min.css'>
 	
 	<script src='lib/jquery.min.js'></script>
 	
@@ -41,51 +42,67 @@
 body {
 	font-family: georgia;
 }
+
+/*@todo: this is not really having an effect: */
 .modal-backdrop {
-	opacity:0.5;
+	opacity:0.8;
 }
 </style>
 <div class='container'>
 <div class='row'>
-	<div class='col-12'>
+	<div class='col-md-12'>
 		<div class='heading row'>
-			<h1 class='appName col-12 bg-info text-center'></h1>
-			<h4 class='appDescn col-12 bg-success text-center'></h4>
+			<h1 class='appName col-md-12 bg-info text-center'></h1>
+			<h4 class='appDescn col-md-12 bg-warning text-center'></h4>
 			
-			<h4 class='col-12 text-center'>
-			<a class='text-center appURL' href="#"><img class='rounded' src='logo.jpg'><br>Project Github Repository</a>
-			</h4>
+<!--
+			<div class='col-md-12 mx-auto text-center'>
+				<img src='https://raw.githubusercontent.com/prahladyeri/tuxdrive/master/screenshot.png'>
+				<br>
+				<br>
+			</div>
 			
-		</div>
+-->
+			
+			<h4 class='col-md-6 mx-auto text-center'>
+	<a class='text-center pull-left appURL' href="#"><span class='fa fa-2x fa-github'>&nbsp;</span></a>
 
-		<div class='releases col-12 text-center'>
+<a class='pull-right' href="bitcoin:1Av4rPGBz5rJVPwewSTDCpYac1rjvkaSzT"><span class='fa fa-2x fa-btc'></span></a>
+
+<a class='pull-right' href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=JM8FUXNFUK6EU"><span class='fa fa-2x fa-cc-paypal'>&nbsp;</span></a>
+
+			</h4>
+		</div>
+		
+
+		<div class='releases col-md-12 text-center'>
 		</div>
 	</div>
 	
-	<div class='mx-auto col-6 template card d-none'>
-		<div class="card-header">Release</div>
+	<div class='template card text-white bg-dark border-secondary mx-auto col-md-7 d-none' >
+		<h4 class="card-header">Release</h4>
 		<div class="card-body">
 		<h4 class="card-title">Version 1.11 of X has been released.</h4>
 		<p class="card-text"></p>
-		<a href="#" class="btn-binary btn btn-success btn-sm">Download Binary</a>
-		<a href="#" class="btn-src btn btn-primary  btn-sm">Download Source</a>
+		<a href="#" class="btn-binary btn btn-success fa fa-download">&nbsp;Download Binary</a>
+		<a href="#" class="btn-src btn btn-primary  fa fa-code">&nbsp;Download Source</a>
 		</div>
 	</div>
 </div>
 
 <div class='row'>
 <div class='col-12 text-center'>
-	<p>&copy; Prahlad Yeri 2017. All Rights Reserved.</p>
+	<p class='font-style-italic'>&copy; <a href='https://www.prahladyeri.com'>Prahlad Yeri</a> 2017. All Rights Reserved.</p>
 </div>
 </div>
 </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="waitDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content text-center">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Loading</h5>
+          <h5 class="modal-title col-12" id="exampleModalLabel" >Loading</h5>
 <!--
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -108,7 +125,7 @@ body {
 
 
 <script>
-$(document).ready(function(){
+$(document).ready(function() {
 	$(".appName").text(appName);
 	$(".appDescn").text(appDescn);
 	$(".appURL").attr('href','https://github.com/' + repoName);
@@ -117,17 +134,11 @@ $(document).ready(function(){
 			hideBackdrop();
 		});
 	});
-	//hideBackdrop();
-	//$(".modal-backdrop").remove();
-	//console.log('removed');
 });
 </script>
-
 <!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
 </script>
 -->
-
-
 </body>
 </html>
