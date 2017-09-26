@@ -54,7 +54,7 @@ body {
 	<div class='col-md-12'>
 		<div class='heading row'>
 			<h1 class='appName rounded col-md-8 bg-warning mx-auto text-center'></h1>
-			<div class='col-md-12 mx-auto text-center'><img class='rounded-circle' src='https://github.com/prahladyeri/tuxdrive/blob/master/logo_small.jpg?raw=true'></div>
+			<div class='col-md-12 mx-auto text-center'><img style="border:2px solid white; margin-bottom:10px;" class='rounded-circle project-logo' src=''></div>
 			<h4 class='appDescn rounded col-md-8 bg-info mx-auto text-center'></h4>
 			<h4 class='col-md-6 mx-auto text-center'>
 	<a class='text-center pull-left text-white appURL' href="#"><span class='fa fa-2x fa-github'>&nbsp;</span></a>
@@ -140,6 +140,7 @@ $(document).ready(function() {
 	$(".appName").text(appName);
 	$(".appDescn").text(appDescn);
 	$(".appURL").attr('href','https://github.com/' + repoName);
+	$('.project-logo').attr('src', projectLogoURL);
 	
 	var now = new Date();
 	var cfyear = $('.copyright-fyear').text();

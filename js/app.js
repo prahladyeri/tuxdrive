@@ -2,6 +2,7 @@ var appName = "Tux Drive";
 var appDescn = "Console based google drive client for Linux";
 
 var repoName = "prahladyeri/tuxdrive";
+var projectLogoURL = "https://github.com/prahladyeri/tuxdrive/blob/master/logo_small.jpg?raw=true";
 
 function showBackdrop() {
 	//~ $('#waitDialog').on('shown.bs.modal', function(){
