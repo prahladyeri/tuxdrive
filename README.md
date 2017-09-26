@@ -22,8 +22,8 @@
 
 ## Project Details
 
-- Lead Developer: [Prahlad Yeri](https://github.com/prahladyeri)
 - Home Page: [https://prahladyeri.github.io/tuxdrive/](https://prahladyeri.github.io/tuxdrive/)
+- Lead Developer: [Prahlad Yeri](https://github.com/prahladyeri)
 - Issue tracker: [https://github.com/prahladyeri/tuxdrive/issues](https://github.com/prahladyeri/tuxdrive/issues)
 <!-- - Discussion Room: [https://www.reddit.com/r/tuxdrive](https://www.reddit.com/r/tuxdrive) -->
 
