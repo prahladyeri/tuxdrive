@@ -40,7 +40,7 @@
 -->
 <style>
 body {
-	font-family: georgia;
+	font-family: arial;
 	background-color: brown;
 }
 
@@ -53,9 +53,9 @@ body {
 <div class='row'>
 	<div class='col-md-12'>
 		<div class='heading row'>
-			<h1 class='appName rounded col-md-8 bg-info mx-auto text-center'></h1>
+			<h1 class='appName rounded col-md-8 bg-warning mx-auto text-center'></h1>
 			<div class='col-md-12 mx-auto text-center'><img class='rounded-circle' src='https://github.com/prahladyeri/tuxdrive/blob/master/logo_small.jpg?raw=true'></div>
-			<h4 class='appDescn rounded col-md-8 bg-warning mx-auto text-center'></h4>
+			<h4 class='appDescn rounded col-md-8 bg-info mx-auto text-center'></h4>
 			<h4 class='col-md-6 mx-auto text-center'>
 	<a class='text-center pull-left text-white appURL' href="#"><span class='fa fa-2x fa-github'>&nbsp;</span></a>
 
@@ -104,7 +104,7 @@ body {
 
 <div class='row'>
 <div class='col-12 text-center text-white'>
-	<p class='font-style-italic'>&copy; <a href='https://www.prahladyeri.com'>Prahlad Yeri</a> 2017. All Rights Reserved.</p>
+	<p class='font-style-italic'>&copy; <a class='text-warning' href='https://www.prahladyeri.com'>Prahlad Yeri</a> <span class='copyright-fyear'>2017</span><span class='copyright-tyear'></span>.</p>
 </div>
 </div>
 </div>
@@ -140,6 +140,14 @@ $(document).ready(function() {
 	$(".appName").text(appName);
 	$(".appDescn").text(appDescn);
 	$(".appURL").attr('href','https://github.com/' + repoName);
+	
+	var now = new Date();
+	var cfyear = $('.copyright-fyear').text();
+	var ctyear = now.getFullYear();
+	if (cfyear != ctyear) {
+		$('.copyright-tyear').text("- " + ctyear);
+	}
+	
 	//showBackdrop();
 	getAllReleases(function(){
 		hideBackdrop();
