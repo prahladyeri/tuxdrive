@@ -65,6 +65,8 @@ def oauth2callback():
 	credentials = tools.run_flow(flow, store)
 	return credentials
 	
+	
+	
 def list_contents(silent = False):
 	global creds, remote_contents, remote_dir_cache
 	creds = get_credentials()
@@ -96,6 +98,65 @@ def list_contents(silent = False):
 		print("\n%d items found.\n" % (foldercnt + filecnt))
 		print("Remote Working Directory is %s(%s)" % (remote_dir, remote_dir_id) )
 		
+def share(file_id, email=None):
+	creds = get_credentials()
+	http = creds.authorize(httplib2.Http())
+	service = discovery.build('drive', 'v3', http=http)
+	ll = list_permissions(file_id, True) #check existing permissions
+	#for item in ll: print(item)
+	if len(ll) > 0: 
+		#print(ll)
+		print("Permissions already exist for this file. Run clear permissions to clear them first.")
+		return
+
+	body = {
+		'role':'writer', #reader/writer/owner/organizer
+		'type':'anyone' if email==None else "user", #user/group/domain/anyone
+		'value': email, #email address if applicable, None otherwise
+		'emailAddress': email,
+	}
+	permissions = service.permissions().create(fileId = file_id, body=body).execute()
+	print("Shared successfully.")
+	the_file = service.files().get(fileId=file_id, fields= 'webContentLink').execute()
+	#print("URL is %s" % the_file['alternateLink']) #webContentLink
+	print(the_file)
+
+def clear_permissions(file_id):	
+	creds = get_credentials()
+	http = creds.authorize(httplib2.Http())
+	service = discovery.build('drive', 'v3', http=http)
+	ll = list_permissions(file_id, True) #check existing permissions
+	#[{'id': '02374398500541929744', 'kind': 'drive#permission', 'role': 'owner', 'type': 'user'}]
+	if len(ll) > 0:
+		for item in ll:
+			service.permissions().delete(fileId=file_id, permissionId=item['id']).execute()
+		print("Cleared all permissions on %s." % file_id)
+	else:
+		print("No permissions to clear.")
+
+# Returns all permissions except the owner permission		
+def list_permissions(file_id, silent=False):
+	#global creds, remote_contents, remote_dir_cache
+	creds = get_credentials()
+	http = creds.authorize(httplib2.Http())
+	service = discovery.build('drive', 'v3', http=http)
+	#service.files().delete(fileId=file_id).execute()
+	permissions = service.permissions().list(fileId = file_id).execute()
+	#ll = permissions.get('items', [])
+	ll = permissions.get('permissions', [])
+	for item in ll[:]:
+		if item['role'] == 'owner': ll.remove(item)
+	#ll = [item['role'] != 'owner': item ]
+	
+	if not silent:
+		if len(ll) == 0:
+			print("No permissions exist.")
+		else:
+			for item in ll: print(item)
+		#print(permissions)
+	else:
+		return ll
+
 def delete_file(file_id):
 	"""Permanently delete a file, skipping the trash."""
 	credentials = get_credentials()
@@ -279,14 +340,26 @@ dir (or ls): Lists all files and folders on drive.
 get (or pull) <item>: Pulls the named file/folder from drive to current working directory.
 put (or push) <item>: Pushes the named file/folder from current working directory to drive.
 rm <item>: Delete the named file/folder on remote path.
-pwd: Print working directory (remote/drive)
-cd: Change working directory (remote/drive)
-lpwd: Print working directory (local)
-lcd: Change working directory (local)
+pwd: Print working directory (remote/drive).
+cd: Change working directory (remote/drive).
+lpwd: Print working directory (local).
+lcd: Change working directory (local).
+mkdir: Create a directory on remote path.
+list permissions <item>: Lists the permissions on specific file/directory.
+clear permissions <item>: Clears permissions on specific file/directory.
+share <item>: Shares the specific file/directory in remote drive publicly.
+share <item> <email>: Shares the specific file/directory in remote drive to specified email.
+exit: Exits this program.
 rdcache: Show remote directory mapping of id and folder paths.
 rfcache: Show remote files mapping of id and folder paths.
-mkdir: Create a directory on remote path.
-exit: Exits this program.
+
+Examples:
+
+get alice.txt (Pulls the file alice.txt to local directory).
+share bob.txt (Shares the file bob.txt publicly).
+share joe.txt alice@gmail.com (Shares the file joe.txt with Alice).
+list permissions alice.txt (Lists the current permissions available on alice.txt)
+
 """
 	#repl
 	PROMPT = "tux_drive> "
@@ -406,6 +479,48 @@ exit: Exits this program.
 			ss = cli[6:]
 			upload_file(ss, True)
 			list_contents(True) #repoll
+		elif cli.startswith("list permissions"):
+			ss = " ".join(cli.split(" ")[2:])
+			fname = remote_dir + ("" if remote_dir=="/" else "/") + ss
+			#print(ss, len(ss))
+			##print(remote_file_cache.keys())
+			if fname in remote_dir_cache.keys():
+				theid = remote_dir_cache[fname]
+			elif fname in remote_file_cache.keys():
+				theid = remote_file_cache[fname]
+			else:
+				print("Item not found on remote drive.")
+				continue
+			list_permissions(theid)
+		elif cli.startswith("clear permissions"):
+			ss = " ".join(cli.split(" ")[2:])
+			fname = remote_dir + ("" if remote_dir=="/" else "/") + ss
+			if fname in remote_dir_cache.keys():
+				theid = remote_dir_cache[fname]
+			elif fname in remote_file_cache.keys():
+				theid = remote_file_cache[fname]
+			else:
+				print("Item not found on remote drive.")
+				continue
+			clear_permissions(theid)
+		elif cli.startswith("share "):
+			#ss = " ".join(cli.split(" ")[1:])
+			ss = cli.split(" ")[1:]
+			fname = remote_dir + ("" if remote_dir=="/" else "/") + ss[0]
+			if fname in remote_dir_cache.keys():
+				theid = remote_dir_cache[fname]
+			elif fname in remote_file_cache.keys():
+				theid = remote_file_cache[fname]
+			else:
+				print("Item not found on remote drive.")
+				continue
+			if len(ss) == 1: #globally
+				share(theid)
+			elif len(ss) > 1: #with specific email
+				share(theid, ss[1])
+			else:
+				print("Incorrect arguments.")
+				continue
 		elif cli.startswith("rm"):
 			ss, found = cli[3:], False
 			for item in remote_contents:
