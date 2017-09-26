@@ -3,19 +3,20 @@ var appDescn = "Console based google drive client for Linux";
 
 var repoName = "prahladyeri/tuxdrive";
 
-function showBackdrop(done) {
-	$('#waitDialog').on('shown.bs.modal', function(){
-		console.log('shown');
-		done();
-	});
-	$('#waitDialog').modal('show');
+function showBackdrop() {
+	//~ $('#waitDialog').on('shown.bs.modal', function(){
+		//~ console.log('shown');
+		//~ done();
+	//~ });
+	//~ $('#waitDialog').modal('show');
+	//$(".card.template.card-body").append($("<span class='fa fa-refresh fa-spin fa-4x'></span>"));
+	//done();
 }
 
 function hideBackdrop(){
-	//$(".modal-backdrop").remove();
-	//console.log('hidebd');
-	$('#waitDialog').modal({show:false});
-	$('#waitDialog').modal('hide');
+	//~ $('#waitDialog').modal({show:false});
+	//~ $('#waitDialog').modal('hide');
+	$(".temp.placeholder").hide();
 }
 
 function getAllReleases(done) {

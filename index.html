@@ -70,11 +70,24 @@ body {
 		<div class='releases col-md-12 text-center'>
 		</div>
 	</div>
+
 	
-	<div class='template card text-white bg-dark border-secondary mx-auto col-md-7 d-none' >
-		<h4 class="card-header">Release</h4>
+<!--
+	d-none
+-->
+	
+	<div class='temp placeholder card text-white bg-dark border-secondary mx-auto col-md-7 text-center' style="opacity:0.5;">
 		<div class="card-body">
-			<h4 class="card-title">Version 1.11 of X has been released.</h4>
+		<br><br><br><br><br><br>
+		<span class='fa fa-refresh fa-spin fa-4x'></span>
+		<br><br><br><br><br><br>
+		</div>
+	</div>
+	
+	<div class='template card text-white bg-dark border-secondary mx-auto col-md-7 d-none' > 
+		<h4 class="card-header">&nbsp;</h4>
+		<div class="card-body">
+			<h4 class="card-title">&nbsp;<br><br><br><br><br><br></h4>
 			<div class='card-text'>
 				<a href="#" class="btn-binary btn btn-success fa fa-download">&nbsp;Download Binary</a>
 				<a href="#" class="btn-src btn btn-primary  fa fa-code">&nbsp;Download Source</a>
@@ -127,11 +140,12 @@ $(document).ready(function() {
 	$(".appName").text(appName);
 	$(".appDescn").text(appDescn);
 	$(".appURL").attr('href','https://github.com/' + repoName);
-	showBackdrop(function(){
-		getAllReleases(function(){
-			hideBackdrop();
-		});
+	//showBackdrop();
+	getAllReleases(function(){
+		hideBackdrop();
 	});
+
+	
 });
 </script>
 <!--
