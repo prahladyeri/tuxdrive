@@ -10,8 +10,7 @@
 2. [Project Details](#project-details)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [Contribution](#contribution)
-6. [Donation](#donation)
+6. [Donate](#donate)
 7. [License](#license)
 
 ## Introduction
@@ -75,15 +74,7 @@ rfcache: Show remote files mapping of id and folder paths.
 
 tuxdrive is under active development, so there is no extensive documentation. I'll keep updating the github wiki as and when I get time.
 
-## Contribution
-
-I'm presently looking for people who can contribute in the following ways:
-
-1. Testing: Extensive user testing with feedback.
-2. Code review: There is no such thing as bug-free code and more the number of eyeballs, the better it is.
-3. Logo Design: The present logo is a bit hastily patched up, it would be great if you can design for me a new logo for this project!
-
-## Donation
+## Donate
 
 
 | Paypal | Bitcoin |
