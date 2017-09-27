@@ -9,30 +9,10 @@
 	<link rel='stylesheet' href='css/font-awesome.min.css'>
 	
 	<script src='lib/jquery.min.js'></script>
-	
-<!--
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
-</script>	
--->
-<!--
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
--->
-<script src="lib/popper.min.js" ></script>
-
-<!--
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js">
--->
-	
-<script src='lib/bootstrap.min.js'></script>
-
-<!--
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
--->
-	
-	
+	<script src="lib/popper.min.js" ></script>
+	<script src='lib/bootstrap.min.js'></script>
 	<script src='js/app.js'></script>
-	
-	<link rel="icon" href="logo.jpg">
+	<link rel="icon" href="">
 </head>
 <body>
 <!--
@@ -41,7 +21,7 @@
 <style>
 body {
 	font-family: arial;
-	background-color: brown;
+	/*background-color: brown;*/
 }
 
 /*@todo: this is not really having an effect: */
@@ -51,32 +31,31 @@ body {
 </style>
 <div class='container'>
 <div class='row'>
-	<div class='col-md-12'>
-		<div class='heading row'>
-			<h1 class='appName rounded col-md-8 bg-warning mx-auto text-center'></h1>
-			<div class='col-md-12 mx-auto text-center'><img style="border:2px solid white; margin-bottom:10px;" class='rounded-circle project-logo' src=''></div>
-			<h4 class='appDescn rounded col-md-8 bg-info mx-auto text-center'></h4>
-			<h4 class='col-md-6 mx-auto text-center'>
-	<a class='text-center pull-left text-white appURL' href="#"><span class='fa fa-2x fa-github'>&nbsp;</span></a>
+<div class='col-md-12'>
+	<div class='heading row'>
+		<h1 style="margin-top:5px" class='appName rounded col-md-8 bg-warning mx-auto text-center'></h1>
+		<div class='col-md-12 mx-auto text-center'><img style="border:2px solid white; margin-bottom:10px;" class='rounded-circle project-logo' src=''></div>
+		<h3 style='padding:5px;' class='appDescn rounded col-md-8 bg-info mx-auto text-center'></h3>
+		<h4 class='col-md-8 mx-auto text-center'>
+			<a class='text-center pull-left appURL' href="#"><span class='fa fa-2x fa-github'>&nbsp;</span></a>
 
-<a class='pull-right text-white' href="bitcoin:1Av4rPGBz5rJVPwewSTDCpYac1rjvkaSzT"><span class='fa fa-2x fa-btc'></span></a>
-
-<a class='pull-right text-white' href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=JM8FUXNFUK6EU"><span class='fa fa-2x fa-cc-paypal'>&nbsp;</span></a>
-
-			</h4>
-		</div>
-		
-
-		<div class='releases col-md-12 text-center'>
-		</div>
+			<a class='pull-right ' href="bitcoin:1Av4rPGBz5rJVPwewSTDCpYac1rjvkaSzT"><span class='fa fa-2x fa-btc'></span></a>
+			<a class='pull-right ' href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=JM8FUXNFUK6EU"><span class='fa fa-2x fa-cc-paypal'>&nbsp;</span></a>
+		</h4>
 	</div>
+	
+	<div class='clearfix'> </div>
+
+	<div class='releases col-md-12 text-center'>
+	</div>
+</div>
 
 	
 <!--
 	d-none
 -->
 	
-	<div class='temp placeholder card text-white bg-dark border-secondary mx-auto col-md-7 text-center' style="opacity:0.5;">
+	<div class='temp placeholder card text-white bg-dark border-secondary mx-auto col-md-8 text-center' style="opacity:1;">
 		<div class="card-body">
 		<br><br><br><br><br><br>
 		<span class='fa fa-refresh fa-spin fa-4x'></span>
@@ -84,7 +63,7 @@ body {
 		</div>
 	</div>
 	
-	<div class='template card text-white bg-dark border-secondary mx-auto col-md-7 d-none' > 
+	<div class='template card text-white bg-dark border-secondary mx-auto col-md-8 d-none' > 
 		<h4 class="card-header">&nbsp;</h4>
 		<div class="card-body">
 			<h4 class="card-title">&nbsp;<br><br><br><br><br><br></h4>
@@ -103,8 +82,8 @@ body {
 </div>
 
 <div class='row'>
-<div class='col-12 text-center text-white'>
-	<p class='font-style-italic'>&copy; <a class='text-warning' href='https://www.prahladyeri.com'>Prahlad Yeri</a> <span class='copyright-fyear'>2017</span><span class='copyright-tyear'></span>.</p>
+<div class='col-12 text-center'>
+	<p class='h4'>&copy; <a class='' href='https://www.prahladyeri.com'>Prahlad Yeri</a> <span class='copyright-fyear'>2017</span><span class='copyright-tyear'></span>.</p>
 </div>
 </div>
 </div>
@@ -141,6 +120,7 @@ $(document).ready(function() {
 	$(".appDescn").text(appDescn);
 	$(".appURL").attr('href','https://github.com/' + repoName);
 	$('.project-logo').attr('src', projectLogoURL);
+	$('link[rel="icon"]').attr('href', projectLogoURL);
 	
 	var now = new Date();
 	var cfyear = $('.copyright-fyear').text();
