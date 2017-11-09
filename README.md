@@ -77,9 +77,9 @@ tuxdrive is under active development, so there is no extensive documentation. I'
 ## Donate
 
 
-| Paypal | Bitcoin |
-| ------ | ------- |
-| [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU) |  1Av4rPGBz5rJVPwewSTDCpYac1rjvkaSzT |
+| Paypal  |
+| ------  |
+| [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU)  |
 
 
 ## License
