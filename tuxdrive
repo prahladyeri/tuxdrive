@@ -2,6 +2,7 @@
 ##
 # Tuxdrive A linux console implementation of Google Drive API
 #
+import sys
 import os, httplib2, readline, site
 from apiclient import discovery
 from apiclient.http import MediaIoBaseDownload, MediaFileUpload
@@ -361,20 +362,16 @@ share joe.txt alice@gmail.com (Shares the file joe.txt with Alice).
 list permissions alice.txt (Lists the current permissions available on alice.txt)
 
 """
-	#repl
-	PROMPT = "tux_drive> "
-	list_contents(True)
-	while(True):
-		try:
-			cli = str(input(PROMPT))
-		except KeyboardInterrupt:
-			print("Bye.")
-			break
+	#executing if arguments found
+	if len(sys.argv)==3 or len(sys.argv)==2:
+		list_contents()
+		cli = ' '.join(sys.argv[1:])
+		
 		if cli == "help":
 			print(HELP_STRING)
 		elif cli == "exit":
 			print("Bye.")
-			break
+			exit
 		elif cli == "ls" or cli == "dir" or cli == "ls remote":
 			list_contents()
 		elif cli == "!ls" or cli == "!dir" or cli == "ls local":
@@ -443,6 +440,7 @@ list permissions alice.txt (Lists the current permissions available on alice.txt
 			print("")
 		elif cli.startswith("pull ") or cli.startswith("get "):
 			#ss = cli[5:]
+			print("cli is %s" % cli)
 			ss = cli[cli.index(' ')+1:]
 			fname = remote_dir + ("" if remote_dir=="/" else "/") + ss
 			if fname in remote_file_cache.keys():
@@ -462,6 +460,7 @@ list permissions alice.txt (Lists the current permissions available on alice.txt
 				list_contents(True)
 			else:
 				print("Item not found on remote drive.")
+				exit
 		elif cli.startswith("push ") or cli.startswith("put "):
 			#ss = cli[5:]
 			ss = cli[cli.index(' ')+1:]
@@ -490,7 +489,7 @@ list permissions alice.txt (Lists the current permissions available on alice.txt
 				theid = remote_file_cache[fname]
 			else:
 				print("Item not found on remote drive.")
-				continue
+				exit
 			list_permissions(theid)
 		elif cli.startswith("clear permissions"):
 			ss = " ".join(cli.split(" ")[2:])
@@ -501,7 +500,7 @@ list permissions alice.txt (Lists the current permissions available on alice.txt
 				theid = remote_file_cache[fname]
 			else:
 				print("Item not found on remote drive.")
-				continue
+				exit
 			clear_permissions(theid)
 		elif cli.startswith("share "):
 			#ss = " ".join(cli.split(" ")[1:])
@@ -513,14 +512,14 @@ list permissions alice.txt (Lists the current permissions available on alice.txt
 				theid = remote_file_cache[fname]
 			else:
 				print("Item not found on remote drive.")
-				continue
+				exit
 			if len(ss) == 1: #globally
 				share(theid)
 			elif len(ss) > 1: #with specific email
 				share(theid, ss[1])
 			else:
 				print("Incorrect arguments.")
-				continue
+				exit
 		elif cli.startswith("rm"):
 			ss, found = cli[3:], False
 			for item in remote_contents:
@@ -535,6 +534,183 @@ list permissions alice.txt (Lists the current permissions available on alice.txt
 			if not found: print("Item not found on remote drive.")
 		else:
 			print("Unrecognized verb.")
+		exit
+	else:
+
+		#repl
+		PROMPT = "tux_drive> "
+		list_contents(True)
+		while(True):
+			try:
+				cli = str(input(PROMPT))
+			except KeyboardInterrupt:
+				print("Bye.")
+				break
+			if cli == "help":
+				print(HELP_STRING)
+			elif cli == "exit":
+				print("Bye.")
+				break
+			elif cli == "ls" or cli == "dir" or cli == "ls remote":
+				list_contents()
+			elif cli == "!ls" or cli == "!dir" or cli == "ls local":
+				cnt = 0
+				for item in os.listdir():
+					print(("FILE " if os.path.isfile(item) else "DIRECTORY ") + item)
+					cnt += 1
+				print("\n%d items found.\n" % cnt)
+				print("\nLocal Working Directory is %s" % os.getcwd())
+			elif cli.startswith("rcd ") or cli.startswith("cd "):
+				#ss = cli[4:]
+				ss = cli[cli.index(' ')+1:]
+				#if len(remote_contents) == 0: list_contents(True)
+				found = True
+				
+				if ss == "/":
+					remote_dir = "/"
+					remote_dir_id = "root"
+					list_contents(True)
+				elif ss == "..":
+					remote_dir = "/".join(remote_dir.split("/")[0:-1])
+					#remote_dir_id = last_remote_dir_id
+					if remote_dir == "": 
+						remote_dir = "/"
+						remote_dir_id = "root"
+					else:
+						remote_dir_id = remote_dir_cache[remote_dir]
+					list_contents(True)
+				else:
+					if remote_dir + ("" if remote_dir=="/" else "/") + ss in remote_dir_cache.keys():
+						remote_dir += ("" if remote_dir=="/" else "/") + ss
+						remote_dir_id = remote_dir_cache[remote_dir]
+						list_contents(True)
+					else:
+						found = False
+					#found = False
+					#~ for item in remote_contents:
+						#~ if item['name'] == ss:
+							#~ found = True
+							#~ remote_dir += ("" if remote_dir=="/" else "/") + ss
+							#~ #last_remote_dir_id = remote_dir_id
+							#~ remote_dir_id = item['id']
+							#~ list_contents(True)
+				if not found:
+					print("Directory not found on remote drive.")
+				else:
+					print("Remote directory changed to " + remote_dir + " (%s)" % remote_dir_id)
+			elif cli.startswith("lcd "): #change local directory
+				ss = cli[4:]
+				if os.path.isdir(ss):
+					os.chdir(ss)
+					print("Directory changed to %s\n" % ss)
+				else:
+					print("Directory does not exist.\n")
+			elif cli == "lpwd" or cli == "lwd":
+				print("Local Working Directory is %s" % os.getcwd()) #os.chdir(..), 
+			elif cli == "pwd" or cli == "rwd":
+				print("Remote Working Directory is %s(%s)" % (remote_dir, remote_dir_id))
+			elif cli == "rdcache":
+				for key in remote_dir_cache:
+					print(key, remote_dir_cache[key])
+				print("")
+			elif cli == "rfcache":
+				for key in remote_file_cache:
+					print(key, remote_file_cache[key])
+				print("")
+			elif cli.startswith("pull ") or cli.startswith("get "):
+				#ss = cli[5:]
+				ss = cli[cli.index(' ')+1:]
+				fname = remote_dir + ("" if remote_dir=="/" else "/") + ss
+				if fname in remote_file_cache.keys():
+					print("File found: %s" % fname)
+					rr = download_file(remote_file_cache[fname], os.getcwd() + os.sep + ss)
+				elif fname in remote_dir_cache.keys():
+					print("Directory found: %s" % fname)
+					#save current settings
+					trd, trd_id = remote_dir, remote_dir_id
+					#tld = os.getcwd()
+					REF_PATH = os.getcwd()
+					#download directory
+					download_directory(fname)
+					#revert old settings
+					remote_dir, remote_dir_id = trd, trd_id
+					#os.chdir(tld)
+					list_contents(True)
+				else:
+					print("Item not found on remote drive.")
+			elif cli.startswith("push ") or cli.startswith("put "):
+				#ss = cli[5:]
+				ss = cli[cli.index(' ')+1:]
+				if os.path.isfile(ss):
+					upload_file(ss)
+				elif os.path.isdir(ss): #upload directory
+					trd, trd_id = remote_dir, remote_dir_id
+					upload_directory(ss)
+					remote_dir, remote_dir_id = trd, trd_id
+					list_contents(True)
+				else:
+					print("Item not found on local drive.")
+				list_contents(True) #repoll
+			elif cli.startswith("mkdir"):
+				ss = cli[6:]
+				upload_file(ss, True)
+				list_contents(True) #repoll
+			elif cli.startswith("list permissions"):
+				ss = " ".join(cli.split(" ")[2:])
+				fname = remote_dir + ("" if remote_dir=="/" else "/") + ss
+				#print(ss, len(ss))
+				##print(remote_file_cache.keys())
+				if fname in remote_dir_cache.keys():
+					theid = remote_dir_cache[fname]
+				elif fname in remote_file_cache.keys():
+					theid = remote_file_cache[fname]
+				else:
+					print("Item not found on remote drive.")
+					continue
+				list_permissions(theid)
+			elif cli.startswith("clear permissions"):
+				ss = " ".join(cli.split(" ")[2:])
+				fname = remote_dir + ("" if remote_dir=="/" else "/") + ss
+				if fname in remote_dir_cache.keys():
+					theid = remote_dir_cache[fname]
+				elif fname in remote_file_cache.keys():
+					theid = remote_file_cache[fname]
+				else:
+					print("Item not found on remote drive.")
+					continue
+				clear_permissions(theid)
+			elif cli.startswith("share "):
+				#ss = " ".join(cli.split(" ")[1:])
+				ss = cli.split(" ")[1:]
+				fname = remote_dir + ("" if remote_dir=="/" else "/") + ss[0]
+				if fname in remote_dir_cache.keys():
+					theid = remote_dir_cache[fname]
+				elif fname in remote_file_cache.keys():
+					theid = remote_file_cache[fname]
+				else:
+					print("Item not found on remote drive.")
+					continue
+				if len(ss) == 1: #globally
+					share(theid)
+				elif len(ss) > 1: #with specific email
+					share(theid, ss[1])
+				else:
+					print("Incorrect arguments.")
+					continue
+			elif cli.startswith("rm"):
+				ss, found = cli[3:], False
+				for item in remote_contents:
+					if item['name'] == ss and item['type'] == 'DIRECTORY':
+						found = True
+						rr = input("%s is a directory. Are you sure you want to delete it? (Y/n)" % item['name']).lower()
+						if rr == "y":
+							delete_file(item['id'])
+					elif item['name'] == ss and item['type'] == 'FILE':
+						found = True
+						delete_file(item['id'])
+				if not found: print("Item not found on remote drive.")
+			else:
+				print("Unrecognized verb.")
 
 if __name__ == "__main__":
 	main()
