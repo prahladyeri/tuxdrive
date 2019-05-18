@@ -1,6 +1,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
 <!-- [![](https://www.paypalobjects.com/en_US/i/btn/x-click-but04.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU) -->
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU)
 
 # tuxdrive
 
@@ -10,7 +11,6 @@
 2. [Project Details](#project-details)
 3. [Installation](#installation)
 4. [Usage](#usage)
-6. [Donate](#donate)
 7. [License](#license)
 
 ## Introduction
@@ -73,13 +73,6 @@ rfcache: Show remote files mapping of id and folder paths.
 ## Documentation
 
 tuxdrive is under active development, so there is no extensive documentation. I'll keep updating the github wiki as and when I get time.
-
-## Donate
-
-
-| Paypal  |
-| ------  |
-| [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU)  |
 
 
 ## License
