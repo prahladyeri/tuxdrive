@@ -31,7 +31,7 @@
 
 As a pre-requisite, you should have `python3` and `google-api-python-client` package installed using `pip3`:
 
-	sudo pip3 install google-api-python-client
+	sudo pip3 install google-api-python-client oauth2client
 
 After that, just download the [latest binary(DEB) package](https://prahladyeri.github.io/tuxdrive/) and run the following command.
 
