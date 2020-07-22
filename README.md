@@ -59,11 +59,6 @@ Similarly, you can run `push some_local_file.txt` to upload it to your drive, or
 	rdcache: Show remote directory mapping of id and folder paths.
 	rfcache: Show remote files mapping of id and folder paths.
 
-
-## Documentation
-
-tuxdrive is under active development, so there is no extensive documentation. I'll keep updating the github wiki as and when I get time.
-
 ## License
 
 `tuxdrive` is free and open source software. It is [MIT](https://opensource.org/licenses/MIT) licensed.
