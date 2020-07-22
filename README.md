@@ -11,7 +11,6 @@
 ##### Table of Contents
 
 1. [Introduction](#introduction)
-2. [Project Details](#project-details)
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [License](#license)
@@ -21,14 +20,6 @@
 `tuxdrive` is a console based DIY google drive client.
 
 ![Logo](https://raw.githubusercontent.com/prahladyeri/tuxdrive/master/logo_small.jpg)
-
-
-## Project Details
-
-- Home Page: [https://prahladyeri.github.io/tuxdrive/](https://prahladyeri.github.io/tuxdrive/)
-- Lead Developer: [Prahlad Yeri](https://github.com/prahladyeri)
-- Issue tracker: [https://github.com/prahladyeri/tuxdrive/issues](https://github.com/prahladyeri/tuxdrive/issues)
-<!-- - Discussion Room: [https://www.reddit.com/r/tuxdrive](https://www.reddit.com/r/tuxdrive) -->
 
 ## Installation
 
