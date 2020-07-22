@@ -26,7 +26,7 @@
 	pip install tuxdrive
 
 
-Since this is a DIY (Do-it-yourself) app, you'll have to register your own app by going to the [Google API Console](https://console.cloud.google.com/?pli=1) and then:
+Since this is a DIY (Do-it-yourself) app, you'll have to register your own app by going to the [Google Cloud Console](https://console.cloud.google.com) and then:
 
 1. Enable Google Drive API.
 2. Create credentials (make sure you choose "Desktop App")
