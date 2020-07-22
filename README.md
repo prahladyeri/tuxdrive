@@ -27,8 +27,8 @@ Only then the program will be able to work. For more information on registering 
 
 Notes:
 
+- If you are a new developer on Google, you might see a prompt saying "This app isn't verified", so you must add a [security exception](https://raw.githubusercontent.com/prahladyeri/prahladyeri.com/gh-pages/uploads/google_app_no_street_cred.png) to verify it successfully.
 - As of version 2.0.0, `pip` is the only supported installation method, the old DEB/RPM method is depreciated.
-- If you are a new developer without lots of street cred, Google might show you a prompt saying "This app isn't verified", so you must add a [security exception](https://raw.githubusercontent.com/prahladyeri/prahladyeri.com/gh-pages/uploads/google_app_no_street_cred.png) to verify successfully.
 
 ## Usage
 
