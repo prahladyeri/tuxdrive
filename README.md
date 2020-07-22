@@ -49,24 +49,24 @@ Once you start `tuxdrive` program, it will give you a `tux_drive>` prompt from w
 
 Similarly, you can run `push some_local_file.txt` to upload it to your drive, or `rcd my_drive_folder` to change the remote drive. Here is the entire command list:
 
-help (or ?): Shows this help facility.
-dir (or ls): Lists all files and folders on drive.
-!dir (or !ls): Lists all files and folders in current directory.
-get (or pull) <item>: Pulls the named file/folder from drive to current working directory.
-put (or push) <item>: Pushes the named file/folder from current working directory to drive.
-rm <item>: Delete the named file/folder on remote path.
-pwd: Print working directory (remote/drive).
-cd: Change working directory (remote/drive).
-lpwd: Print working directory (local).
-lcd: Change working directory (local).
-mkdir: Create a directory on remote path.
-list permissions <item>: Lists the permissions on specific file/directory.
-clear permissions <item>: Clears permissions on specific file/directory.
-share <item>: Shares the specific file/directory in remote drive publicly.
-share <item> <email>: Shares the specific file/directory in remote drive to specified email.
-exit: Exits this program.
-rdcache: Show remote directory mapping of id and folder paths.
-rfcache: Show remote files mapping of id and folder paths.
+	help (or ?): Shows this help facility.
+	dir (or ls): Lists all files and folders on drive.
+	!dir (or !ls): Lists all files and folders in current directory.
+	get (or pull) <item>: Pulls the named file/folder from drive to current working directory.
+	put (or push) <item>: Pushes the named file/folder from current working directory to drive.
+	rm <item>: Delete the named file/folder on remote path.
+	pwd: Print working directory (remote/drive).
+	cd: Change working directory (remote/drive).
+	lpwd: Print working directory (local).
+	lcd: Change working directory (local).
+	mkdir: Create a directory on remote path.
+	list permissions <item>: Lists the permissions on specific file/directory.
+	clear permissions <item>: Clears permissions on specific file/directory.
+	share <item>: Shares the specific file/directory in remote drive publicly.
+	share <item> <email>: Shares the specific file/directory in remote drive to specified email.
+	exit: Exits this program.
+	rdcache: Show remote directory mapping of id and folder paths.
+	rfcache: Show remote files mapping of id and folder paths.
 
 
 ## Documentation
