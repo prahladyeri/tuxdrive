@@ -11,11 +11,11 @@
 2. [Project Details](#project-details)
 3. [Installation](#installation)
 4. [Usage](#usage)
-7. [License](#license)
+5. [License](#license)
 
 ## Introduction
 
-`tuxdrive` is a console based google drive client for Linux.
+`tuxdrive` is a console based DIY google drive client.
 
 ![Logo](https://raw.githubusercontent.com/prahladyeri/tuxdrive/master/logo_small.jpg)
 
@@ -29,15 +29,12 @@
 
 ## Installation
 
-As a pre-requisite, you should have `python3` and `google-api-python-client` package installed using `pip3`:
+	pip install tuxdrive
 
-	sudo pip3 install google-api-python-client oauth2client
 
-After that, just download the [latest binary(DEB) package](https://prahladyeri.github.io/tuxdrive/) and run the following command.
+Since this is a DIY (Do-it-yourself) app, you'll have to register your own app by going to the [Google API Console](https://console.cloud.google.com/?pli=1), enable Drive API, create credentials and copy the `client_id.json` to your working folder. Only then the program will be able to work. For more information on how to do this, you may [refer to this article](https://prahladyeri.com/blog/2016/12/how-to-create-google-drive-app-python-flask.html).
 
-    sudo dpkg -i tuxdrive.deb
-    
-An alternative/manual way of installing is to just download the `tuxdrive` python source file from master branch and copy it to a folder on your machine. But then, you'll have to register your own app by going to the [Google API Console](https://console.cloud.google.com/?pli=1), enable Drive API, create credentials and copy the `client_id.json` to your `/etc/tuxdrive` folder. Only then the program will be able to work.
+(Note: As of version 2.0.0, `pip` is the only supported installation method, the old DEB/RPM method is depreciated)
 
 ## Usage
 
@@ -46,7 +43,6 @@ An alternative/manual way of installing is to just download the `tuxdrive` pytho
 Once you start `tuxdrive` program, it will give you a `tux_drive>` prompt from which you can run the above commands. When you run `tuxdrive` the first time, it will open up the browser window and ask for permissions to access your google drive on your behalf. After that, you can start running commands. You can list your drive files using `ls` or `dir` command for example:
 
 ![Screenshot](https://github.com/prahladyeri/tuxdrive/raw/master/screenshot.png)
-
 
 Similarly, you can run `push some_local_file.txt` to upload it to your drive, or `rcd my_drive_folder` to change the remote drive. Here is the entire command list:
 
@@ -74,8 +70,7 @@ rfcache: Show remote files mapping of id and folder paths.
 
 tuxdrive is under active development, so there is no extensive documentation. I'll keep updating the github wiki as and when I get time.
 
-
 ## License
 
-`tuxdrive` is free and open source, and it always will be. It is licensed under the [MIT](https://opensource.org/licenses/MIT).
+`tuxdrive` is free and open source software. It is [MIT](https://opensource.org/licenses/MIT) licensed.
 

@@ -1,3 +1,6 @@
+credentials.json
+client_id.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
