@@ -1,4 +1,4 @@
-![pypi](https://img.shields.io/pypi/t/tuxdrive.svg)
+![pypi](https://img.shields.io/pypi/v/tuxdrive.svg)
 ![python](https://img.shields.io/pypi/pyversions/tuxdrive.svg)
 ![license](https://img.shields.io/github/license/prahladyeri/tuxdrive.svg)
 ![last-commit](https://img.shields.io/github/last-commit/prahladyeri/tuxdrive.svg)
