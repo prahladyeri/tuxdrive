@@ -1,7 +1,10 @@
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![pypi](https://img.shields.io/pypi/t/tuxdrive.svg)
+![python](https://img.shields.io/pypi/pyversions/tuxdrive.svg)
+![license](https://img.shields.io/github/license/prahladyeri/tuxdrive.svg)
+![last-commit](https://img.shields.io/github/last-commit/prahladyeri/tuxdrive.svg)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
-<!-- [![](https://www.paypalobjects.com/en_US/i/btn/x-click-but04.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU) -->
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU)
+[![donate](https://img.shields.io/badge/-Donate-blue.svg?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU)
+[![follow](https://img.shields.io/twitter/follow/prahladyeri.svg?style=social)](https://twitter.com/prahladyeri)
 
 # tuxdrive
 
@@ -34,7 +37,10 @@
 
 Since this is a DIY (Do-it-yourself) app, you'll have to register your own app by going to the [Google API Console](https://console.cloud.google.com/?pli=1), enable Drive API, create credentials and copy the `client_id.json` to your working folder. Only then the program will be able to work. For more information on how to do this, you may [refer to this article](https://prahladyeri.com/blog/2016/12/how-to-create-google-drive-app-python-flask.html).
 
-(Note: As of version 2.0.0, `pip` is the only supported installation method, the old DEB/RPM method is depreciated)
+Notes:
+
+- As of version 2.0.0, `pip` is the only supported installation method, the old DEB/RPM method is depreciated)
+- If you are a new developer without lots of street cred, Google might show you a prompt saying "This app isn't verified", so you must add a [security exception](https://raw.githubusercontent.com/prahladyeri/prahladyeri.com/gh-pages/uploads/google_app_no_street_cred.png) to verify successfully.
 
 ## Usage
 
