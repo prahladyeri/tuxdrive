@@ -29,14 +29,14 @@
 Since this is a DIY (Do-it-yourself) app, you'll have to register your own app by going to the [Google Cloud Console](https://console.cloud.google.com) and then:
 
 1. Enable Google Drive API.
-2. Create credentials (make sure you choose "Desktop App")
+2. Create credentials (make sure you choose "Desktop App").
 3. Download the credentials json file and save it as `client_id.json` to your working folder. 
 
 Only then the program will be able to work. For more information on registering a Google app, you may [refer to this article](https://prahladyeri.com/blog/2016/12/how-to-create-google-drive-app-python-flask.html).
 
 Notes:
 
-- As of version 2.0.0, `pip` is the only supported installation method, the old DEB/RPM method is depreciated)
+- As of version 2.0.0, `pip` is the only supported installation method, the old DEB/RPM method is depreciated.
 - If you are a new developer without lots of street cred, Google might show you a prompt saying "This app isn't verified", so you must add a [security exception](https://raw.githubusercontent.com/prahladyeri/prahladyeri.com/gh-pages/uploads/google_app_no_street_cred.png) to verify successfully.
 
 ## Usage
