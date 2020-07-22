@@ -6,20 +6,11 @@
 [![donate](https://img.shields.io/badge/-Donate-blue.svg?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU)
 [![follow](https://img.shields.io/twitter/follow/prahladyeri.svg?style=social)](https://twitter.com/prahladyeri)
 
-# tuxdrive
-
-##### Table of Contents
-
-1. [Introduction](#introduction)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [License](#license)
-
 ## Introduction
 
 `tuxdrive` is a console based DIY google drive client.
 
-![Logo](https://raw.githubusercontent.com/prahladyeri/tuxdrive/master/logo_small.jpg)
+![Logo](tuxdrive/logo_small.jpg)
 
 ## Installation
 
