@@ -35,7 +35,13 @@
 	pip install tuxdrive
 
 
-Since this is a DIY (Do-it-yourself) app, you'll have to register your own app by going to the [Google API Console](https://console.cloud.google.com/?pli=1), enable Drive API, create credentials and copy the `client_id.json` to your working folder. Only then the program will be able to work. For more information on how to do this, you may [refer to this article](https://prahladyeri.com/blog/2016/12/how-to-create-google-drive-app-python-flask.html).
+Since this is a DIY (Do-it-yourself) app, you'll have to register your own app by going to the [Google API Console](https://console.cloud.google.com/?pli=1) and then:
+
+1. Enable Google Drive API.
+2. Create credentials (make sure you choose "Desktop App")
+3. Download the credentials json file and save it as `client_id.json` to your working folder. 
+
+Only then the program will be able to work. For more information on how to do this, you may [refer to this article](https://prahladyeri.com/blog/2016/12/how-to-create-google-drive-app-python-flask.html).
 
 Notes:
 
