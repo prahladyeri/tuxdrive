@@ -65,7 +65,7 @@ Similarly, you can run `push some_local_file.txt` to upload it to your drive, or
 
 ## Donation
 
-I'm a poor and humble coder from India and highly stressed for resources right now. Please consider donating if this tool has helped you in any way. You can also [hire me on fiverr](https://www.fiverr.com/prahladyeri) to get any coding task done.
+I'm a poor and humble coder from India and highly stressed for resources. Please consider donating if this tool has helped you in any way. You can also [hire me on fiverr](https://www.fiverr.com/prahladyeri) to get any coding task done.
 
 - [Donate through PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU)
 - [Donate through Patreon](https://www.patreon.com/prahladyeri)
