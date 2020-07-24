@@ -36,7 +36,7 @@ Notes:
 
 Once you start `tuxdrive` program, it will give you a `tux_drive>` prompt from which you can run the above commands. When you run `tuxdrive` the first time, it will open up the browser window and ask for permissions to access your google drive on your behalf. After that, you can start running commands. You can list your drive files using `ls` or `dir` command for example:
 
-![Screenshot](https://github.com/prahladyeri/tuxdrive/raw/master/screenshot.png)
+![Screenshot](tuxdrive/screenshot.png)
 
 Similarly, you can run `push some_local_file.txt` to upload it to your drive, or `rcd my_drive_folder` to change the remote drive. Here is the entire command list:
 
