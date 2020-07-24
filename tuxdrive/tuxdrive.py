@@ -8,16 +8,14 @@ from apiclient.http import MediaIoBaseDownload, MediaFileUpload
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
-from tuxdrive import __version__, __license__, __author__
+from tuxdrive import __version__, __license__, __author__, __copyright__
 
 APPLICATION_NAME = "Tux Drive"
 APP_PATH = os.getcwd()
 REF_PATH = os.getcwd() #useful in downloading directories
 BANNER = """Tux Drive version """ + __version__ + """
-Copyright (c) 2017 Prahlad Yeri. All rights reserved.
-
-This work is licensed under the terms of the MIT license.  
-For a copy, see <https://opensource.org/licenses/MIT>.
+Copyright """+__copyright__+""".
+License: MIT <https://opensource.org/licenses/MIT>
 """
 
 store = None 
@@ -276,6 +274,7 @@ def upload_file(input_file, is_folder=False):
                 media_body=media_body).execute()
         else:
             print("Folder already exists.")
+            return
     else: #new upload
         #the_file = service.files().get(fileId=item['id']).execute()
         #print("Fname: " + fname)
@@ -450,9 +449,17 @@ list permissions alice.txt (Lists the current permissions available on alice.txt
             fname = remote_dir + ("" if remote_dir=="/" else "/") + ss
             if fname in remote_file_cache.keys():
                 print("File found: %s" % fname)
+                # check if already exists locally
+                if os.path.isfile("."+fname):
+                    r = input("This file already exists locally, overwrite? (Y/n)")
+                    if r.lower() != 'y': continue
                 rr = download_file(remote_file_cache[fname], os.getcwd() + os.sep + ss)
             elif fname in remote_dir_cache.keys():
                 print("Directory found: %s" % fname)
+                # check if already exists locally
+                if os.path.isdir("."+fname):
+                    r = input("This directory already exists locally, overwrite? (Y/n)")
+                    if r.lower() != 'y': continue
                 #save current settings
                 trd, trd_id = remote_dir, remote_dir_id
                 #tld = os.getcwd()
