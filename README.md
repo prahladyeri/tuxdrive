@@ -65,7 +65,7 @@ Similarly, you can run `push some_local_file.txt` to upload it to your drive, or
 
 ## Donation
 
-Please consider donating if this tool has helped you in any way. You can also [hire me on fiverr](https://www.fiverr.com/prahladyeri) to get professional support and customization.
+Please consider donating if this tool has helped you in any way. You can also hire me through [upwork](https://www.upwork.com/freelancers/~01e977ff45b62e031c) or [fiverr](https://www.fiverr.com/prahladyeri) to get professional support and customization.
 
 - [Donate through PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM8FUXNFUK6EU)
 - [Donate through Patreon](https://www.patreon.com/prahladyeri)
