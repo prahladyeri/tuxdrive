@@ -37,8 +37,8 @@ def fetch(query, sort='modifiedTime desc'):
 
 def get_credentials():
     global store
-    #credential_path = site.getuserbase() + os.sep + 'credentials.json'
-    credential_path = os.getcwd() + os.sep + 'credentials.json'
+    #credential_path = site.getuserbase() + os.sep + '.credentials.json'
+    credential_path = os.getcwd() + os.sep + '.credentials.json'
     store = Storage(credential_path)
     credentials = store.get()
     if not credentials or credentials.invalid:
@@ -49,7 +49,7 @@ def get_credentials():
         return credentials
 
 def oauth2callback():
-    helpstr = """Credentials file (client_id.json) not found on path:
+    helpstr = """Credentials file (.client_id.json) not found on path:
 
 %s
 
@@ -57,8 +57,8 @@ def oauth2callback():
 https://prahladyeri.com/blog/2016/12/how-to-create-google-drive-app-python-flask.html    
 """
     global store
-    fname = 'client_id.json'
-    #if not os.path.isfile(fname): fname = "/etc/tuxdrive/client_id.json"
+    fname = '.client_id.json'
+    #if not os.path.isfile(fname): fname = "/etc/tuxdrive/.client_id.json"
     if not os.path.isfile(fname): 
         print(helpstr % os.getcwd())
         return False
